@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0f0a1e;
+  --color-foreground: #e8e0f0;
+  --color-card: #1a1230;
+  --color-card-foreground: #e8e0f0;
+  --color-primary: #8b5cf6;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #3b1f7a;
+  --color-secondary-foreground: #e8e0f0;
+  --color-accent: #f59e0b;
+  --color-accent-foreground: #1a1230;
+  --color-muted: #2a1f45;
+  --color-muted-foreground: #a89bc2;
+  --color-destructive: #ef4444;
+  --color-border: #3b2d5e;
+  --color-ring: #8b5cf6;
+  --color-success: #22c55e;
+  --color-xp: #3b82f6;
+  --color-coin: #f59e0b;
+  --color-streak: #ef4444;
+  --color-magic: #a855f7;
+  --font-sans: "Noto Sans JP", "Inter", system-ui, sans-serif;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    min-height: 100dvh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px var(--color-primary); }
+  50% { box-shadow: 0 0 20px var(--color-primary), 0 0 40px var(--color-magic); }
+}
+
+@keyframes coin-spin {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@keyframes rainbow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-coin-spin {
+  animation: coin-spin 0.6s ease-in-out;
+}
+
+.animate-rainbow {
+  animation: rainbow 3s linear infinite;
+}
